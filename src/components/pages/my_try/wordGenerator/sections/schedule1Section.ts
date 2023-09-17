@@ -1,4 +1,4 @@
-import { Paragraph, Table, TableRow, TextRun } from 'docx'
+import {Paragraph, Table, TableRow, TextRun, WidthType} from 'docx'
 import GenerateOfGeneral from '../generateOfGeneral'
 import { ICurrentAsicExtract, IData, IOffice, IShareholding } from '../document'
 import { dateFormat, getDifferentYearsFromNow } from '../utils'
@@ -207,6 +207,10 @@ class GenerateSchedule1Section extends GenerateOfGeneral {
             ...super.getTableTotalSettings(),
             float: {
                 absoluteHorizontalPosition: 600
+            },
+            width: {
+                size: 13000,
+                type: WidthType.DXA,
             }
         }
     }

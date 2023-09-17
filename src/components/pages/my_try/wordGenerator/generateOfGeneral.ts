@@ -19,10 +19,6 @@ class GenerateOfGeneral{
                 right: 100,
                 top: 50,
                 bottom: 50
-            },
-            width: {
-                size: 13000,
-                type: WidthType.DXA,
             }
         }
     }
@@ -46,9 +42,7 @@ class GenerateOfGeneral{
                     children: [
                         new TextRun({
                             text: data?.name,
-                            bold: true,
-                            size: 20,
-                            font: config.font
+                            ...config.listLevel1,
                         }),
                         // new ImageRun({
                         //     data: (data?.img),
@@ -147,10 +141,7 @@ class GenerateOfGeneral{
             children: [
                 new TextRun({
                     text: text,
-                    color: '#575AEF',
-                    size: 24,
-                    font: config.font,
-                    bold: true
+                    ...config.listLevel1
                 })
             ],
             numbering: {
@@ -168,10 +159,7 @@ class GenerateOfGeneral{
             children: [
                 new TextRun({
                     text: text,
-                    color: '#000000',
-                    size: 22,
-                    font: config.font,
-                    bold: true
+                    ...config.listLevel2
                 })
             ],
             numbering: {
@@ -191,10 +179,7 @@ class GenerateOfGeneral{
             children: [
                 new TextRun({
                     text: text,
-                    color: '#000000',
-                    size: 20,
-                    font: config.font,
-                    bold: true
+                    ...config.listLevel3
                 })
             ],
             numbering: {
@@ -209,7 +194,13 @@ class GenerateOfGeneral{
         })
     }
 
-    public createCell (text: string | number) {
+    public createCell (text: string | number, width?: number) {
+        const w = width ? {
+            width: {
+                size: width
+            }
+        } : {}
+
         return new TableCell({
             children: [
                 new Paragraph({
@@ -221,7 +212,8 @@ class GenerateOfGeneral{
                         })
                     ]
                 })
-            ]
+            ],
+            ...w
         })
     }
 

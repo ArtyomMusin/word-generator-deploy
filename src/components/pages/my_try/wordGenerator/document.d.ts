@@ -57,20 +57,35 @@ export interface ICurrentAsicExtract {
     officeHolders: object
 }
 
+export interface ITradeMark {
+    number: string
+    classes: number[] | string[]
+    statusCode: string
+    statusDetail: string
+    renewalDueDate: string
+    image: string
+}
+
 export interface IProprietorSearch {
     formerNames: [],
     acn: string,
-    trademarks: [{
-        number: string
-        classes: number[] | string[]
-        statusCode: string
-        statusDetail: string
-        renewalDueDate: string
-    }]
+    name: string
+    trademarks: iTradeMark[]
+}
+
+export interface IPPSR {
+    companyId: string
+    createdAt: string
+    id: string
+    ppsrSearches:[]
+    projectId: string
+    updatedAt: string
+    userId: string
 }
 
 export interface IData {
-    project: IProject,
-    currentAsicExtracts: ICurrentAsicExtract[],
+    project: IProject
+    currentAsicExtracts: ICurrentAsicExtract[]
     proprietorSearches: IProprietorSearch[]
+    ppsrSearchGroups: IPPSR[]
 }

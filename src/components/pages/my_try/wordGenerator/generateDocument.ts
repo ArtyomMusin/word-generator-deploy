@@ -4,6 +4,7 @@ import { IData } from './document'
 import { getIntroBySchedule1 } from './sections/schedule1Intro'
 import { getSectionBySchedule1 } from './sections/schedule1Section'
 import { getSectionBySchedule2 } from './sections/schedule2Section'
+import { getSectionBySchedule3 } from './sections/schedule3Section'
 
 class generateDocument extends GenerateOfGeneral {
     data: IData
@@ -20,8 +21,7 @@ class generateDocument extends GenerateOfGeneral {
         }
     }
 
-    createDocument () {
-
+    async createDocument () {
         return new Document({
             numbering: {
                 config: [
@@ -54,7 +54,7 @@ class generateDocument extends GenerateOfGeneral {
                                     paragraph: {
                                         indent: { left: 300, hanging: 200 },
 
-                                    }
+                                    },
                                 },
                             },
                         ],
@@ -64,14 +64,14 @@ class generateDocument extends GenerateOfGeneral {
                         levels: [
                             {
                                 level: 2,
-                                format: LevelFormat.UPPER_ROMAN,
-                                text: "%a. ",
+                                format: LevelFormat.LOWER_LETTER,
+                                text: "",
                                 alignment: AlignmentType.LEFT,
                                 style: {
                                     paragraph: {
-                                        indent: { left: 600, hanging: 200 },
+                                        indent: { left: 600, hanging: 0 },
                                     }
-                                },
+                                }
                             },
                         ],
                     },
@@ -80,7 +80,8 @@ class generateDocument extends GenerateOfGeneral {
             sections: [
                 this.createPage(getIntroBySchedule1()),
                 ...this.data?.currentAsicExtracts?.map((sectionData, i) => this.createPage(getSectionBySchedule1(sectionData, this.data, i))),
-                this.createPage(getSectionBySchedule2(this.data?.proprietorSearches, this.data))
+                this.createPage(await getSectionBySchedule2(this.data?.proprietorSearches, this.data)),
+                this.createPage(getSectionBySchedule3(this.data?.ppsrSearchGroups, this.data))
             ],
         })
     }

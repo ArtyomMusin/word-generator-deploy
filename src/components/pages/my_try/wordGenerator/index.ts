@@ -3,9 +3,9 @@ import { Packer } from 'docx'
 import { saveAs } from 'file-saver'
 import { IData } from './document'
 
-export const generate = (data: IData) => {
+export const generate = async (data: IData) => {
     const documentCreator = new generateDocument(data)
-    const doc = documentCreator.createDocument()
+    const doc = await documentCreator.createDocument()
 
     Packer.toBlob(doc).then(blob => {
         saveAs(blob, "example.docx")
