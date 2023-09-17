@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.d0055bbb.css",
-    "main.js": "/static/js/main.c436b975.js",
-    "index.html": "/index.html",
-    "main.d0055bbb.css.map": "/static/css/main.d0055bbb.css.map",
-    "main.c436b975.js.map": "/static/js/main.c436b975.js.map"
+    "main.css": "/word-generator/static/css/main.d0055bbb.css",
+    "main.js": "/word-generator/static/js/main.c436b975.js",
+    "index.html": "/word-generator/index.html",
+    "main.d0055bbb.css.map": "/word-generator/static/css/main.d0055bbb.css.map",
+    "main.c436b975.js.map": "/word-generator/static/js/main.c436b975.js.map"
   },
   "entrypoints": [
     "static/css/main.d0055bbb.css",
