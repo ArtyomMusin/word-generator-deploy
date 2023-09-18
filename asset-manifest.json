@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/word-generator/static/css/main.d0055bbb.css",
-    "main.js": "/word-generator/static/js/main.c436b975.js",
+    "main.js": "/word-generator/static/js/main.4f38f830.js",
     "index.html": "/word-generator/index.html",
     "main.d0055bbb.css.map": "/word-generator/static/css/main.d0055bbb.css.map",
-    "main.c436b975.js.map": "/word-generator/static/js/main.c436b975.js.map"
+    "main.4f38f830.js.map": "/word-generator/static/js/main.4f38f830.js.map"
   },
   "entrypoints": [
     "static/css/main.d0055bbb.css",
-    "static/js/main.c436b975.js"
+    "static/js/main.4f38f830.js"
   ]
 }
